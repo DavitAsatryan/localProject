@@ -38,18 +38,20 @@ public class MainActivity extends AppCompatActivity {
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loag.setText("Loading...");
-                intent = new Intent(getApplicationContext(),Loading.class);
-                String name = nameEdit.getText().toString();
-                intent.putExtra("name", name);
-                proBar.setVisibility(View.VISIBLE);
-                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        proBar.setVisibility(View.INVISIBLE);
-                        startActivity(intent);
-                    }
-                },400);
+//                loag.setText("Loading...");
+//                intent = new Intent(getApplicationContext(),Loading.class);
+//                String name = nameEdit.getText().toString();
+//                intent.putExtra("name", name);
+//                proBar.setVisibility(View.VISIBLE);
+//                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        proBar.setVisibility(View.INVISIBLE);
+//                    }
+//                },400);
+
+//                startActivity(intent);
+        startActivity(new Intent(MainActivity.this, Loading.class));
             }
         });
     }

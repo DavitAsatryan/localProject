@@ -16,8 +16,6 @@ import android.widget.TextView;
 import java.net.Inet4Address;
 
 public class Loading extends AppCompatActivity {
-
-
     //SwipeRefreshLayout refreshLayout;
     ProgressBar proBar;
     static int i = 0;
@@ -27,30 +25,28 @@ public class Loading extends AppCompatActivity {
         setContentView(R.layout.activity_loading);
         getSupportActionBar().hide();
 
-         Intent intent = getIntent();
+        Intent intent = getIntent();
         final String name = intent.getStringExtra("name");
-
-
-        startActivity(new Intent(this, MainActivity.class));
+        final TextView nameText = (TextView) findViewById(R.id.nameId);
+        Button button = (Button) findViewById(R.id.backid);
         proBar = (ProgressBar) findViewById(R.id.probar) ;
 
-        final TextView nameText = (TextView) findViewById(R.id.nameId);
         nameText.setText(name);
-        Button button = (Button) findViewById(R.id.backid);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 proBar.setVisibility(View.VISIBLE);
-                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        proBar.setVisibility(View.INVISIBLE);
-                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                    }
-                },400);
+//                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        proBar.setVisibility(View.INVISIBLE);
+//                    }
+//                }, 400);
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
         });
+
 //        refreshLayout =findViewById(R.id.refresh);
 //        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
 //            @Override
